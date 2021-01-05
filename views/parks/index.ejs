@@ -9,7 +9,7 @@
     <h1>All Parks</h1>
     <ul>
         <% for(let park of parks) { %>
-            <li><%= park.title %></li>
+            <a href="/parks/<%= park.id %>"><li><%= park.title %></li></a>
         <% } %> 
     </ul>
 </body>

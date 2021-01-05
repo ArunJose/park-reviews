@@ -29,6 +29,11 @@ app.get("/parks", async (req, res) => {
   res.render("parks/index", { parks });
 });
 
+app.get("/parks/:id", async (req, res) => {
+  const park = await Park.findOne({ _id: req.params.id });
+  res.render("parks/show", { park });
+});
+
 app.listen(3000, () => {
   console.log("Serving at port 3000");
 });
