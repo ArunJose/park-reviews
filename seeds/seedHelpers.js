@@ -3,6 +3,8 @@ module.exports.descriptors = [
   "Blue",
   "Silver",
   "Green",
+  "Yellow",
+  "Red",
   "Popular",
   "Striking",
   "Royal",
@@ -17,6 +19,15 @@ module.exports.descriptors = [
   "State",
   "District",
   "Ancient",
+  "Royal",
+  "Raja",
+  "Rani",
+  "Silent",
+  "Valley",
+  "North",
+  "South",
+  "East",
+  "West",
 ];
 
 module.exports.parkTypes = [
@@ -41,4 +52,7 @@ module.exports.parkTypes = [
   "Game Park",
   "Park and Ruins",
   "Archaeological Park",
+  "Mountain Park",
+  "Ski Park",
+  "Wildlife Park",
 ];

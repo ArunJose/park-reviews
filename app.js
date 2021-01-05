@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const park = require("./models/park");
+const Park = require("./models/park");
 
 mongoose.connect("mongodb://localhost:27017/park-reviews", {
   useNewUrlParser: true,
@@ -24,12 +24,9 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/makepark", async (req, res) => {
-  const park = new park({ title: "My park" });
-});
-
-app.get("/test", (req, res) => {
-  res.send("hi there, I'm gooooood");
+app.get("/parks", async (req, res) => {
+  const parks = await Park.find({});
+  res.render("parks/index", { parks });
 });
 
 app.listen(3000, () => {
