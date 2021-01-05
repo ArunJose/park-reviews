@@ -17,6 +17,7 @@ db.once("open", () => {
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -27,6 +28,17 @@ app.get("/", (req, res) => {
 app.get("/parks", async (req, res) => {
   const parks = await Park.find({});
   res.render("parks/index", { parks });
+});
+
+app.post("/parks", async (req, res) => {
+  console.log(req.body);
+  const park = new Park(req.body);
+  await park.save();
+  res.redirect(`/parks/${park._id}`);
+});
+
+app.get("/parks/new", (req, res) => {
+  res.render("parks/new");
 });
 
 app.get("/parks/:id", async (req, res) => {
