@@ -3,6 +3,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const Park = require("./models/park");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 mongoose.connect("mongodb://localhost:27017/park-reviews", {
   useNewUrlParser: true,
@@ -18,6 +19,7 @@ db.once("open", () => {
 
 const app = express();
 
+app.engine("ejs", ejsMate);
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));

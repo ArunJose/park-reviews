@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Park</title>
-  </head>
-  <body>
-    <h1><%= park.title %></h1>
-    <h2><%= park.location %></h2>
-    <footer>
-      <form method="POST" action="/parks/<%= park._id %>?_method=DELETE">
-        <button>Delete</button>
-      </form>
-      <a href="/parks/<%= park._id %>/edit">Edit</a> <br />
-      <a href="/parks">All parks</a>
-    </footer>
-  </body>
-</html>
+<% layout('layouts/boilerplate') %>
+
+<h1><%= park.title %></h1>
+<h2><%= park.location %></h2>
+<footer>
+  <form method="POST" action="/parks/<%= park._id %>?_method=DELETE">
+    <button>Delete</button>
+  </form>
+  <a href="/parks/<%= park._id %>/edit">Edit</a> <br />
+  <a href="/parks">All parks</a>
+</footer>
