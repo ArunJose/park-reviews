@@ -31,8 +31,7 @@ app.get("/parks", async (req, res) => {
 });
 
 app.post("/parks", async (req, res) => {
-  console.log(req.body);
-  const park = new Park(req.body);
+  const park = new Park(req.body.park);
   await park.save();
   res.redirect(`/parks/${park._id}`);
 });

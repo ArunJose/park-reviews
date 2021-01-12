@@ -7,6 +7,7 @@
   </head>
   <body>
     <h1>All Parks</h1>
+    <a href="/parks/new">New park</a>
     <ul>
       <% for(let park of parks) { %>
       <a href="/parks/<%= park.id %>"><li><%= park.title %></li></a>
