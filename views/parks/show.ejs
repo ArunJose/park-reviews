@@ -1,7 +1,8 @@
 <% layout('layouts/boilerplate') %>
-
 <h1><%= park.title %></h1>
 <h2><%= park.location %></h2>
+<img src="<%= park.image %>" alt="Park Image" />
+<p><%= park.description %></p>
 <footer>
   <form method="POST" action="/parks/<%= park._id %>?_method=DELETE">
     <button>Delete</button>
