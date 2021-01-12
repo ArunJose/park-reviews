@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const Park = require("./models/park");
+const methodOverride = require("method-override");
 
 mongoose.connect("mongodb://localhost:27017/park-reviews", {
   useNewUrlParser: true,
@@ -20,6 +21,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -43,6 +46,18 @@ app.get("/parks/new", (req, res) => {
 app.get("/parks/:id", async (req, res) => {
   const park = await Park.findOne({ _id: req.params.id });
   res.render("parks/show", { park });
+});
+
+app.get("/parks/:id/edit", async (req, res) => {
+  const park = await Park.findOne({ _id: req.params.id });
+  res.render("parks/edit", { park });
+});
+
+app.put("/parks/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(req.params);
+  const park = await Park.findByIdAndUpdate(id, { ...req.body.park });
+  res.redirect(`/parks/${park._id}`);
 });
 
 app.listen(3000, () => {

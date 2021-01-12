@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit park</title>
+  </head>
+  <body>
+    <h1>Edit park</h1>
+    <form method="POST" action="/parks/<%= park._id %>/?_method=PUT">
+      <label for="title">Title</label>
+      <input
+        value="<%= park.title %>"
+        type="text"
+        id="title"
+        name="park[title]"
+      />
+      <label for="location">Location</label>
+      <input
+        value="<%= park.location %>"
+        type="text"
+        id="location"
+        name="park[location]"
+      />
+      <button>Edit</button>
+    </form>
+  </body>
+</html>
