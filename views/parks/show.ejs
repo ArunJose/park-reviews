@@ -9,6 +9,9 @@
     <h1><%= park.title %></h1>
     <h2><%= park.location %></h2>
     <footer>
+      <form method="POST" action="/parks/<%= park._id %>?_method=DELETE">
+        <button>Delete</button>
+      </form>
       <a href="/parks/<%= park._id %>/edit">Edit</a> <br />
       <a href="/parks">All parks</a>
     </footer>
