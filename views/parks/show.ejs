@@ -3,6 +3,7 @@
 <h2><%= park.location %></h2>
 <img src="<%= park.image %>" alt="Park Image" />
 <p><%= park.description %></p>
+<p>Entry fee: <%= park.price %> rupees</p>
 <footer>
   <form method="POST" action="/parks/<%= park._id %>?_method=DELETE">
     <button>Delete</button>

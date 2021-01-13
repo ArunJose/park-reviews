@@ -1,14 +1,70 @@
 <% layout('layouts/boilerplate') %>
-<h1>Edit park</h1>
-<form method="POST" action="/parks/<%= park._id %>/?_method=PUT">
-  <label for="title">Title</label>
-  <input value="<%= park.title %>" type="text" id="title" name="park[title]" />
-  <label for="location">Location</label>
-  <input
-    value="<%= park.location %>"
-    type="text"
-    id="location"
-    name="park[location]"
-  />
-  <button>Edit</button>
-</form>
+<div class="row">
+  <h1 class="text-center">Edit Park</h1>
+  <div class="col-6 offset-3">
+    <form method="POST" action="/parks/<%= park._id %>/?_method=PUT">
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          value="<%= park.title %>"
+          class="form-control"
+          type="text"
+          id="title"
+          name="park[title]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          value="<%= park.location %>"
+          name="park[location]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="image">Image Url</label>
+        <input
+          value="<%= park.image %>"
+          class="form-control"
+          type="text"
+          id="image"
+          name="park[image]"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Park Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">₹</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="park[price]"
+            value="<%= park.price %>"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="park[description]"
+        >
+    <%= park.description %></textarea
+        >
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info">Edit Park</button>
+      </div>
+    </form>
+    <a href="/parks">All Parks</a>
+  </div>
+</div>
